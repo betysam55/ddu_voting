@@ -24,14 +24,27 @@
 </head>
 <body>
     <div id="app">
+        @guest
+        @if(!route('login'))
+        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('login') }}">
+          <i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
+          @endif
+          @if(!route('register'))
+          <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('register') }}">
+          <i class="fa d-inline fa-lg fa-user-circle-o"></i> Register</a>
+          @endif
+        @else
         
 
 
-        <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-md navbar-dark bg-success">
     <div class="container">
-      <a class="navbar-brand" href="{{ url('/') }}">
+      <a class="navbar-brand" href="{{url('/')}}">
         <i class="fa d-inline fa-lg fa-cloud"></i>
-        <b>{{ config('app.name', 'Laravel') }} </b>
+        <b>{{ config('app.name', 'Laravel') }}</b>
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,23 +59,9 @@
             <a class="nav-link" href="#">
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Contacts</a>
           </li>
-          <li class="nav-item">
-            
-          </li>
         </ul>
-        @guest
-        @if(!route('login'))
-        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('login') }}">
-          <i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
-          @endif
-          @if(!route('register'))
-          <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('register') }}">
-          <i class="fa d-inline fa-lg fa-user-circle-o"></i> Register</a>
-          @endif
-        @else
-        
-
- <div class="btn-group">
+      </div>
+       <div class="btn-group">
             <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fa d-inline fa-lg fa-user-circle-o"></i> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
@@ -86,7 +85,6 @@
                                         @csrf
                                     </form>
           @endguest
-      </div>
     </div>
   </nav>
 
