@@ -24,7 +24,7 @@ Route::get('/home',function(){
 	else
 	{
 		$users['users']=\App\User::all();
-		return view('adminhome',$users);
+		return view('admin.home',$users);
 	}
 })->name('home');
 

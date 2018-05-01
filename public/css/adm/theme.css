@@ -64,7 +64,7 @@ body {
   line-height: 1.5;
   color: #333;
   text-align: left;
-  background-color: white; }
+  background-color: #CCCCFF; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -4140,12 +4140,14 @@ button.bg-secondary:focus {
   background-color: #3355b7 !important; }
 
 .bg-success {
-  background-color: #28a745 !important; }
+  background-color: #CC0033 !important; }
 
 a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
-  background-color: #1e7e34 !important; }
+  background-color:black  !important; 
+color: red;}
+  /*#1e7e34*/
 
 .bg-info {
   background-color: #ccc !important; }

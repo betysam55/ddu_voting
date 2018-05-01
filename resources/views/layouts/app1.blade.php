@@ -7,14 +7,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-        <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/adm/theme.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
-
+      <script src="{{ asset('ck/ckeditor.js') }}"></script>
+  
+  <script src="{{ asset('ck/config.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -149,4 +151,12 @@
   <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
   <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+<script src="{{asset('ck/ckeditor.js')}}"></script>
+<script>
+   var konten = document.getElementById("content");
+     CKEDITOR.replace(konten,{
+     language:'en-gb'
+   });
+   CKEDITOR.config.allowedContent = true;
+</script>
 </html>
