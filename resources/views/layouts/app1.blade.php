@@ -10,6 +10,8 @@
         <link href="{{ asset('css/adm/theme.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
+         <link rel="stylesheet" href="{{ asset('fonts/glyphicons-halflings-regular.woff2') }}" type="text/css">
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Scripts -->
@@ -91,7 +93,47 @@
   </nav>
 
         <main class="py-4">
-            @yield('content')
+           <div class="p-1 w-100 h-100 mx-1">
+    <div class="container-fluid w-100 h-100">
+      <div class="row">
+        <div class="col-md-12 w-100 h-100 py-3">
+          <div class="row">
+            <div class="col-3 bg-success py-2">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="" class="active nav-link">
+                    <i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/post">News</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/add/new/student" class="nav-link">Add Students</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/new/notification" class="nav-link">Create Notification</a>
+                </li>
+                 <li class="nav-item">
+                  <a href="/setup/vote" class="nav-link">Setup voting</a>
+                </li>
+                 <li class="nav-item">
+                  <a href="/report" class="nav-link">Generate Report</a>
+                </li>
+                 <li class="nav-item">
+                  <a href="/user/privilage" class="nav-link">User Privilage</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-9 w-100 h-100 bg-light">
+              @yield('content')
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+            
         </main>
     </div>
     <footer>
@@ -153,10 +195,58 @@
   <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
 <script src="{{asset('ck/ckeditor.js')}}"></script>
 <script>
-   var konten = document.getElementById("content");
+   var konten = document.getElementById("body");
      CKEDITOR.replace(konten,{
      language:'en-gb'
    });
    CKEDITOR.config.allowedContent = true;
+</script>
+<script type="text/javascript">
+  $(document).on('click','.create-modal',function(){
+    $('#create').modal('show');
+    $('.form-horizontal').show();
+    $('.modal-title').text('Add Post');
+
+  });
+  
+</script>
+<script type="text/javascript">
+  // function to add (save)
+  $('#add').click(function(){
+    $ajax({
+      type='POST',
+      url='addpost',
+      data={
+        '_token':$('input[name=_token]').val(),
+        'title':$('input[name=title]').val(),
+        'body':$('input[name=body]').val(),
+      },
+      success:function (data){
+        if ((data.errors)) {
+          $('.error').removeClass('hidden');
+          $('.error').text(data.errors.title);
+          $('.error').text(data.errors.body);
+        }
+        else{
+          $('.error').remove();
+          $('#table').append("<tr class='post" + data.id +"'>"+
+            "<td>" + data.id + "</td>"+
+            "<td>" + data.title + "</td>"+
+            "<td>" + data.body + "</td>"+
+            "<td>" + data.created_at +"</td>"+
+            "<td><a class='show-modal btn btn-info btn-sm' data-id='"+data.id+"' data-title='"+data.title+"' data-body='"+data.body+"'>"+
+            "<i class='fa fa-eye'></i></a>"+
+            "<a class='edit-modal btn btn-warning btn-sm' data-id='"+data.id+"' data-title='"+data.title+"' data-body='"+data.body+"'>"+
+            "<i class='fa fa-pencil'></i></a>"+
+            "<a class='delete-modal btn btn-danger btn-sm' data-id='"+data.id+"' data-title='"+data.title+"' data-body='"+data.body+"'>"+
+            "<i class='fa fa-trash'></i></a>"+
+            "</td>"+
+            "</tr>");
+        }
+      },
+    });
+    $('#title').val('');
+    $('#body').val('');
+  });
 </script>
 </html>

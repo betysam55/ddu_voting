@@ -29,11 +29,9 @@ Route::get('/home',function(){
 })->name('home');
 
 });
-
-
-
-
-
-
+Route::resource('post', 'PostController');
+Route::POST('addpost', 'PostController@addpost');
+Route::get('/add/new/student', 'UserController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@update');
+Route::get('/report', 'ReportController@index');

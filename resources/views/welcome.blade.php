@@ -13,7 +13,41 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        
+        <style type="text/css">
+          .star-rating__checkbox {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.star-rating__star {
+  display: inline-block;
+  padding: 3px;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.5em;
+  color: #ABABAB;
+  transition: color .2s ease-out;
+}
+
+.star-rating__star:hover {
+  cursor: pointer;
+}
+
+.star-rating__star.is-selected {
+  color: #FFD700;
+}
+
+.star-rating__star.is-disabled:hover {
+  cursor: default;
+}
+
+        </style>
     </head>
     <body>
           <nav class="navbar navbar-expand-md bg-primary navbar-dark">
@@ -82,6 +116,17 @@
           <h1 class="text-center display-3 text-primary">Welcome To DDU Student Union Official Page</h1>
           <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
             irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <div id="app">
+              <p>Quality:</p>
+                <star-rating> name="quality"</star-rating>
+
+                <p>Communication:</p>
+                <star-rating :value="3" name="communication"></star-rating>
+
+                <p>Professionalism:</p>
+                <star-rating name="professionalism"></star-rating>
+            </div>
         </div>
       </div>
     </div>
@@ -160,6 +205,81 @@
   <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
   <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
- 
+  <script src="{{ asset('vue.min.js') }}" type="text/javascript"></script>
+ <script type="text/javascript">
+   Vue.component('star-rating', {
+
+  props: {
+    'name': String,
+    'value': null,
+    'id': String,
+    'disabled': Boolean,
+    'required': Boolean
+  },
+
+  template: '<div class="star-rating">\
+        <label class="star-rating__star" v-for="rating in ratings" \
+        :class="{\'is-selected\': ((value >= rating) && value != null), \'is-disabled\': disabled}" \
+        v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">\
+        <input class="star-rating star-rating__checkbox" type="radio" :value="rating" :name="name" \
+        v-model="value" :disabled="disabled">★</label></div>',
+
+  /*
+   * Initial state of the component's data.
+   */
+  data: function() {
+    return {
+      temp_value: null,
+      ratings: [1, 2, 3, 4, 5]
+    };
+  },
+
+  methods: {
+    /*
+     * Behaviour of the stars on mouseover.
+     */
+    star_over: function(index) {
+      var self = this;
+
+      if (!this.disabled) {
+        this.temp_value = this.value;
+        return this.value = index;
+      }
+
+    },
+
+    /*
+     * Behaviour of the stars on mouseout.
+     */
+    star_out: function() {
+      var self = this;
+
+      if (!this.disabled) {
+        return this.value = this.temp_value;
+      }
+    },
+
+    /*
+     * Set the rating of the score
+     */
+    set: function(value) {
+      var self = this;
+
+      if (!this.disabled) {
+        // Make some call to a Laravel API using Vue.Resource
+        
+        this.temp_value = value;
+        return this.value = value;
+      }
+    }
+  }
+
+});
+
+new Vue({
+  el: '#app'
+});
+
+ </script>
     </body>
 </html>
