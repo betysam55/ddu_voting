@@ -40,11 +40,11 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
+              <i class="fa d-inline fa-lg fa-bookmark-o"></i> News</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="fa d-inline fa-lg fa-envelope-o"></i> Contacts</a>
+              <i class="fa d-inline fa-lg fa-envelope-o"></i> Notification</a>
           </li>
           <li class="nav-item">
             
@@ -151,4 +151,5 @@
   <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
   <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+  @yield('script')
 </html>

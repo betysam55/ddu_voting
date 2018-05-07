@@ -30,8 +30,9 @@ Route::get('/home',function(){
 
 });
 Route::resource('post', 'PostController');
-Route::POST('addpost', 'PostController@addpost');
-Route::get('/add/new/student', 'UserController@index');
+Route::get('addpost', 'PostController@addpost');
+Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@update');
+Route::get('/user/privilage', 'UserController@previlage');
 Route::get('/report', 'ReportController@index');

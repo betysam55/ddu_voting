@@ -28,6 +28,29 @@
 </head>
 <body>
     <div id="app">
+        <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url('/') }}">
+        <i class="fa d-inline fa-lg fa-cloud"></i>
+        <b>{{ config('app.name', 'Laravel') }} </b>
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-bookmark-o"></i> News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-envelope-o"></i> Events</a>
+          </li>
+          <li class="nav-item">
+            
+          </li>
+        </ul>
         @guest
         @if(!route('login'))
         <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('login') }}">
@@ -40,32 +63,7 @@
         @else
         
 
-
-      </div>
-    </div>
-  </nav>
-  <nav class="navbar navbar-expand-md navbar-dark bg-success">
-    <div class="container">
-      <a class="navbar-brand" href="{{url('/')}}">
-        <i class="fa d-inline fa-lg fa-cloud"></i>
-        <b>{{ config('app.name', 'Laravel') }}</b>
-      </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa d-inline fa-lg fa-envelope-o"></i> Contacts</a>
-          </li>
-        </ul>
-      </div>
-       <div class="btn-group">
+ <div class="btn-group">
             <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fa d-inline fa-lg fa-user-circle-o"></i> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
@@ -89,6 +87,7 @@
                                         @csrf
                                     </form>
           @endguest
+      </div>
     </div>
   </nav>
 
@@ -101,7 +100,7 @@
             <div class="col-3 bg-success py-2">
               <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                  <a href="" class="active nav-link">
+                  <a href="{{route('home')}}" class="active nav-link">
                     <i class="fa fa-home fa-home"></i>&nbsp;Home</a>
                 </li>
                 <li class="nav-item">
@@ -151,9 +150,9 @@
             <br>
             <a href="#" class="text-white">About us</a>
             <br>
-            <a href="#" class="text-white">Our services</a>
+            <a href="#" class="text-white">Vote</a>
             <br>
-            <a href="#" class="text-white">Stories</a>
+            <a href="#" class="text-white">Events</a>
           </ul>
         </div>
         <div class="p-4 col-md-3">
@@ -249,4 +248,5 @@
     $('#body').val('');
   });
 </script>
+@yield('script')
 </html>

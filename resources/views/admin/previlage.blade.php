@@ -31,7 +31,17 @@
 					<td>{{$value->lname}}</td>
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
-					
+					<td>
+						<a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+							<i class="fa fa-eye"></i>
+						</a>
+						<a href="#" class="show-modal btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+							<i class="fa fa-pencil"></i>
+						</a>
+						<a href="#" class="show-modal btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+							<i class="fa fa-trash "></i>
+						</a>
+					</td>
 					
 				</tr>
 			@endforeach
