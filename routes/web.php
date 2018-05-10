@@ -31,8 +31,10 @@ Route::get('/home',function(){
 });
 Route::resource('post', 'PostController');
 Route::get('addpost', 'PostController@addpost');
-Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@update');
 Route::get('/user/privilage', 'UserController@previlage');
 Route::get('/report', 'ReportController@index');
+Route::get('/setup/vote', 'VoteController@index');
+Route::get('/add/new/student/{id}','AddstudentController@update');
+Route::get('/add/new/student', 'AddstudentController@index');

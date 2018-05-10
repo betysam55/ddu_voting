@@ -6,7 +6,7 @@ use Auth;
 use Image;
 class UserProfileController extends Controller
 {
-   function index($id){
+ public  function index($id){
         $data['data']=DB::table('users')->find($id);
         // dd($data);
             return view('auth.profile', array ('user'=>Auth::user()));

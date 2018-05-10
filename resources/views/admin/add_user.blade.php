@@ -5,13 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Students') }}
+                <div class="card-header">{{ __('New Students') }}
                 	<button class="btn btn-info pull-right">Load</button>
                 </div>
                 <div class="card-body">
                     <table class="table table-borderd table-striped table-condensed">
                     	<thead>
                     		<tr>
+                    			<th></th>
                     			<th>NO</th>
                     			<th>ID</th>
                     			<th>First Name</th>
@@ -25,13 +26,20 @@
 			
 			@foreach ($users as $key=>$value)
 				<tr class="post{{$value->id}}">
+					<td><input type="checkbox" name="checkbox[]" value="<? php echo $value->id; ?>"</td>
 					<td>{{$no++}}</td>
 					<td>{{$value->student_id}}</td>
 					<th>{{$value->fname}}</th>
 					<td>{{$value->lname}}</td>
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
-					
+					<td>
+						<a href="/add/new/student/{{$value->id}}"  class="show-modal btn btn-info btn-sm" type="submit" data-id="" data-title="" data-body="">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="hidden" name="Approved" value="Approved">
+							<i class="fa fa-thick">Approve</i>
+						</a>
+					</td>
 					
 				</tr>
 			@endforeach
