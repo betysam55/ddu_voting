@@ -209,7 +209,7 @@
   });
   
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   // function to add (save)
   $('#add').click(function(){
     $ajax({
@@ -241,12 +241,14 @@
             "<i class='fa fa-trash'></i></a>"+
             "</td>"+
             "</tr>");
-        }
-      },
-    });
-    $('#title').val('');
-    $('#body').val('');
-  });
-</script>
+      }
+    }
+    )}
+    
+  })
+    
+  
+  
+</script> -->
  @yield('script')
 </html>

@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 class AddstudentController extends Controller
 {
   //    public function index()

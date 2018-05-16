@@ -16,6 +16,7 @@
 
                     You are logged in!
                 </div>
+                @include('notification')
                 <div class="py-5">
     <div class="container">
       <div class="row">
@@ -30,7 +31,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2"><div id="app">
+        <div class="col-md-2"><div id="appq">
               <p>Quality:</p>
                 <star-rating> name="quality"</star-rating>
 
@@ -172,7 +173,7 @@
 });
 
 new Vue({
-  el: '#app'
+  el: '#appq'
 });
 
  </script>

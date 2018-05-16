@@ -8,11 +8,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Scripts -->
+    <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap-glyphicons.css') }}" type="text/css"> -->
+    
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
@@ -20,7 +20,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link href="{{ asset('css/bootstrap-iso.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/star-rating.css') }}" media="all" rel="stylesheet" type="text/css"/>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ asset('js/star-rating.js') }}" type="text/javascript"></script>
 </head>
 <body>
     <div id="app">
@@ -56,28 +61,33 @@
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
           @endif
           @if(!route('register'))
-          <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{{ route('register') }}">
+          <a class="btn navbar-btn ml- text-white btn-secondary" href="{{ route('register') }}">
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Register</a>
           @endif
         @else
         
 
  <div class="btn-group">
-            <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fa d-inline fa-lg fa-user-circle-o"></i> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
+            <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" v-pre href=""
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('repvote-form').submit();">
+                                        <i class="fa fa-btn fa-thumbs-up"></i>{{ __(' Representative Vote') }}
+                                    </a>
+                                     <form id="repvote-form" action="{{ route('posts') }}" method="Get" style="display: none;">
+                                        @csrf
+                                    </form>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item"  href=""
                                        onclick="event.preventDefault();
                                                      document.getElementById('profile-form').submit();">
-                                        {{ __('Profile') }}</a>
+                                        <i class="fa d-inline fa-lg fa-user-circle-o"></i>{{ __(' Profile') }}</a>
              <form id="profile-form" action="home/profile/{{Auth::user()->id }}" method="POST" style="display: none;">
                         @csrf
             </form>
-          
-            </div>
-          </div>               
-          <a class="btn navbar-btn ml-2 text-white btn-secondary" role="button" aria-haspopup="true" aria-expanded="false" v-pre href="{{ route('logout') }}"
+             <div class="dropdown-divider"></div>
+            <a class="dropdown-item"  role="button" aria-haspopup="true" aria-expanded="false" v-pre href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fa fa-btn fa-sign-out"></i>Logout
@@ -85,7 +95,14 @@
                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+          
+            </div>
+          </div>               
+          
+          
           @endguest
+
+
       </div>
     </div>
   </nav>

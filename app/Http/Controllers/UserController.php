@@ -19,4 +19,12 @@ class UserController extends Controller
             return view('admin.previlage', ['users' => $data]);
         
     }
+    public function representativevote($id){
+      $data['data']=DB::table('users')->find($id);
+        $data1 = DB::table('users')->where('department', '=',$data['data']->department )->get();
+     
+      return view('user.representativevote', ['users' => $data1]);
+    }
+    
 }
+

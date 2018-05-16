@@ -27,14 +27,20 @@ Route::get('/home',function(){
 		return view('admin.home',$users);
 	}
 })->name('home');
-
 });
+
 Route::resource('post', 'PostController');
 Route::get('addpost', 'PostController@addpost');
-Route::post('/home/profile/{id}', 'UserProfileController@index');
-Route::post('/home/profile/{id}', 'UserProfileController@update');
+Route::get('/add/new/student', 'AddstudentController@index');
+Route::post('/home/profile/{id}', 'UserProfileController@index')->name('profile');
+Route::post('/home/profile/{id}', 'UserProfileController@update')->name('profile');
 Route::get('/user/privilage', 'UserController@previlage');
 Route::get('/report', 'ReportController@index');
 Route::get('/setup/vote', 'VoteController@index');
 Route::get('/add/new/student/{id}','AddstudentController@update');
 Route::get('/add/new/student', 'AddstudentController@index');
+Route::get('representativevote', 'RepresentativeVoteController@posts')->name('posts');
+
+Route::post('representativevote', 'RepresentativeVoteController@postPost')->name('posts.post');
+
+Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('posts.show');
