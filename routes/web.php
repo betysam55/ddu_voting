@@ -38,6 +38,7 @@ Route::get('/user/privilage', 'UserController@previlage');
 Route::get('/report', 'ReportController@index');
 Route::get('/setup/vote', 'VoteController@index');
 Route::get('/add/new/student/{id}','AddstudentController@update');
+Route::get('/add/new/student/deny/{id}','AddstudentController@deny');
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::get('representativevote', 'RepresentativeVoteController@posts')->name('posts');
 

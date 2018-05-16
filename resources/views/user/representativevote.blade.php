@@ -32,7 +32,7 @@
                         </tr>
 
                         @if($posts->count())
-
+                        
                             @foreach($posts as $post)
 
                             <tr>

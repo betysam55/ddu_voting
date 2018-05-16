@@ -5,6 +5,7 @@ use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 class AddstudentController extends Controller
 {
   //    public function index()
@@ -23,6 +24,12 @@ class AddstudentController extends Controller
          $name = $request->input('Approved');
          $data = DB::table('users')->where('Status', '=', 'New')->get();
           DB::update('update users set Status = "Approved" where id = ?',[$id]);
-      return view('admin.add_user',['users' => $data]);
+      return redirect()->back()->with(['users' => $data]);
+    }
+    public function deny (Request $request,$id){
+         $name = $request->input('Deny');
+         $data = DB::table('users')->where('Status', '=', 'New')->get();
+          DB::update('update users set Status = "Deny" where id = ?',[$id]);
+      return redirect()->back()->with(['users' => $data]);
     }
 }
