@@ -30,6 +30,7 @@ Route::get('/home',function(){
 });
 
 Route::resource('post', 'PostController');
+Route::get('/news', 'PostController@userview');
 Route::get('addpost', 'PostController@addpost');
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index')->name('profile');
@@ -37,6 +38,7 @@ Route::post('/home/profile/{id}', 'UserProfileController@update')->name('profile
 Route::get('/user/privilage', 'UserController@previlage');
 Route::get('/report', 'ReportController@index');
 Route::get('/setup/vote', 'VoteController@index');
+Route::post('/setup/vote', 'VoteController@activate')->name('activate');
 Route::get('/add/new/student/{id}','AddstudentController@update');
 Route::get('/add/new/student/deny/{id}','AddstudentController@deny');
 Route::get('/add/new/student', 'AddstudentController@index');
@@ -45,3 +47,4 @@ Route::get('representativevote', 'RepresentativeVoteController@posts')->name('po
 Route::post('representativevote', 'RepresentativeVoteController@postPost')->name('posts.post');
 
 Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('posts.show');
+

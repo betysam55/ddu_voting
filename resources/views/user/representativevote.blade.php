@@ -11,7 +11,7 @@
 
             <div class="panel panel-default">
 
-                <div class="panel-heading">Posts</div>
+                <div class="panel-heading">Representative Vote</div>
 
 
                 <div class="panel-body">
@@ -24,10 +24,11 @@
                             <th>Id</th>
 
                             <th>Name</th>
+                            <th>Last Name</th>
+                            <th>Department</th>
+                            <th width="400px">Result</th>
 
-                            <th width="400px">Star</th>
-
-                            <th width="100px">View</th>
+                            <th width="100px">Vote</th>
 
                         </tr>
 
@@ -39,18 +40,18 @@
 
                                 <td>{{ $post->id }}</td>
 
-                                <td>{{ $post->name }}</td>
-
+                                <td>{{ $post->fname }}</td>
+                                <td>{{ $post->lname }}</td>
+                                <td>{{ $post->department }}</td>
                                 <td>
-
-                                    <input id="input-1" name="input-1" class="rating" data-min="0" data-max="5" data-step="0.1" value="{{ $post->averageRating }}" data-size="xs" disabled="">
-
+                                
+                                   {{ $post->ratingPercent(100) }}
+                                  
                                 </td>
-
+                                
                                 <td>
-
+                                    
                                     <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary btn-sm">View</a>
-
                                 </td>
 
                             </tr>

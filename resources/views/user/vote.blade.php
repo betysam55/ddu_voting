@@ -39,14 +39,15 @@
 
                                 <div class="details col-md-6">
 
-                                    <h3 class="product-title">Laravel 5.5 Ratting System</h3>
+                                    <h3 class="product-title">Representative Vote System</h3>
 
                                     <div class="rating">
 
                                         <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="100" data-step="0.2" value="{{ $post->userAverageRating }}" data-size="xs">
 
                                         <input type="hidden" name="id" required="" value="{{ $post->id }}">
-
+                                        <input type="hidden" name="user_id" required="" value="{{ $post->id }}">
+    
                                         <span class="review-no">422 reviews</span>
 
                                         <br/>
@@ -57,37 +58,14 @@
 
                                     <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
 
-                                    <h4 class="price">current price: <span>$180</span></h4>
+                                    <h4 class="price"></h4>
 
-                                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                                    <p class="vote"><strong>91%</strong> of students vote this student<strong>(87 votes)</strong></p>
 
-                                    <h5 class="sizes">sizes:
+                                    
 
-                                        <span class="size" data-toggle="tooltip" title="small">s</span>
-
-                                        <span class="size" data-toggle="tooltip" title="medium">m</span>
-
-                                        <span class="size" data-toggle="tooltip" title="large">l</span>
-
-                                        <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-
-                                    </h5>
-
-                                    <h5 class="colors">colors:
-
-                                        <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-
-                                        <span class="color green"></span>
-
-                                        <span class="color blue"></span>
-
-                                    </h5>
-
+                                    
                                     <div class="action">
-
-                                        <button class="add-to-cart btn btn-default" type="button">add to cart</button>
-
-                                        <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 
                                     </div>
 

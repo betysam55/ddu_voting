@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use auth;
+use DB;
+use App\Vote;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Collection;
 class RepresentativeVoteController extends Controller
 {
       /**
@@ -47,9 +52,9 @@ class RepresentativeVoteController extends Controller
     public function posts()
 
     {
-
-        $posts = User::all();
-
+        $dep=Auth::user()->department;
+        $posts=user::all()->where('department', '=',$dep);
+          
         return view('user.representativevote',compact('posts'));
 
     }
@@ -65,7 +70,6 @@ class RepresentativeVoteController extends Controller
 
     }
 
-
     public function postPost(Request $request)
 
     {
@@ -74,19 +78,21 @@ class RepresentativeVoteController extends Controller
 
         $post = User::find($request->id);
 
-
         $rating = new \willvincent\Rateable\Rating;
 
         $rating->rating = $request->rate;
-
+        
         $rating->user_id = auth()->user()->id;
-
+        // dd($rating->user_id);
 
         $post->ratings()->save($rating);
 
+       
+        return redirect()->route("posts"); 
+            }
         
-        return redirect()->route("posts");
 
     }
+     
 
 }

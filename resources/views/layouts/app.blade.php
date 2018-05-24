@@ -44,7 +44,7 @@
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/news">
               <i class="fa d-inline fa-lg fa-bookmark-o"></i> News</a>
           </li>
           <li class="nav-item">

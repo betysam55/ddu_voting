@@ -8,4 +8,5 @@ use willvincent\Rateable\Rateable;
 class Vote extends Model
 {
     use Rateable;
+     protected $table='ratings';
 }

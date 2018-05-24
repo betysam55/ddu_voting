@@ -10,7 +10,7 @@ class UserController extends Controller
 {
      public function index(){
      	$data = DB::table('users')->where('Status', '=', 'New')->get();
-     	dd($data);
+     	
    		return view('admin.add_user',['users' => $data]);
    }
     public function previlage(){

@@ -30,5 +30,10 @@ class PostController extends Controller
   		$post->save();
   		return response()->json($post);
   	}
-  }
+    
+  }public function userview(){
+      $post=Post::all();
+
+      return view('user.usernews',['posts' => $post]);
+   }
 }

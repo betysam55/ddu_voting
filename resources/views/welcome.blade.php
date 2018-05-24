@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
         <!-- Fonts -->
+        <link rel="stylesheet" href="{{ asset('css/chart.css') }}" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
@@ -62,11 +63,11 @@
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/news">
               <i class="fa d-inline fa-lg fa-bookmark-o"></i> News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/news">
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Notification</a>
           </li>
         </ul>
@@ -115,20 +116,42 @@
         <div class="col-md-12">
           <h1 class="text-center display-3 text-primary">Welcome To DDU Student Union Official Page</h1>
           <p class="">
-          <p class="lead">This page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transfer</p></p>
-
-           <div id="app">
-              <p>Quality:</p>
-                <star-rating> name="quality"</star-rating>
-
-                <p>Communication:</p>
-                <star-rating :value="3" name="communication"></star-rating>
-
-                <p>Professionalism:</p>
-                <star-rating name="professionalism"></star-rating>
-            </div>
+          <p class="lead">This page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transferThis page will be available for Dire Dawa Uninversity student to enhance the existing voting system to the better technology transfer</p></p><div class="clear-fix"></div>
         </div>
+         @if(Request:: is ('home'))
+               @include('inc.showcase')
+               @endif
+             @if(Request:: is ('home'))
+                @include('inc.slideshow')
+             @endif
 
+
+
+         <h3><b>Vote News</b></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+          <a class="btn btn-primary btn-sm" href="/news" role="button">View Details >></a>
+       </p>
+      <br><br>
+
+
+       <h3><b>Vote Details</b></h3>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+             <a class="btn btn-primary btn-sm" href="/news" role="button">View Details >></a>
+           </p>
+    </div>
+
+@include('layouts.chart')
       </div>
     </div>
   </div>
@@ -152,7 +175,8 @@
       </div>
     </div> -->
   </div>
-  <div class="bg-dark text-white">
+  
+    <div class="bg-dark text-white">
     <div class="container">
       <div class="row">
         <div class="p-4 col-md-3">
@@ -203,6 +227,7 @@
       </div>
     </div>
   </div>
+
   <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
   <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{ asset('js/bootstrap.min.js') }}" ></script>

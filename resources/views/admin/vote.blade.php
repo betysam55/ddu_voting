@@ -13,105 +13,98 @@
                             {{ session('status') }}
                         </div>
                     @endif
-</div>
+                    <div class="row">
+                    	<div class="col-md-12 col-lg-4">
+                    		<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">{{ __('Setup Student Representative Vote') }}
+							</button>
+						</div>
+						<div class="col-md-12 col-lg-4 ">
+							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">{{ __('Setup Student Candidate Vote') }}
+							</button>
+						</div>
+							<div class="col-md-12 col-lg-4"><button type="button" class="btn btn-info pull-right " data-toggle="collapse" data-target="#demo2">{{ __('Active vote') }}
+							</button>
+						</div>
+						
+                    </div>
+                    
+				
 
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-				  {{ __('Setup Student Representative Vote') }}
-				</button>
-				<br><p id="defaultDeltaExample">
-						    <input type="text" class="date start" />
-						    <input type="text" class="time start" /> to
-						    <input type="text" class="time end" />
-						    <input type="text" class="date end" />
-						</p>
 
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
-				  {{ __('Setup Student Candidate Vote') }}
-				</button>
+            </div>
+            <div class="card-footer"></div>
             </div>
         </div>
     </div>
 </div>
 
 
+<div id="demo1" class="collapse">
+	<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Setup Student Candidate Vote') }}</div>
 
-
-
-<!-- The Modal -->
-				<div class="modal fade" id="myModal">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-
-				      <!-- Modal Header -->
-				      <div class="modal-header">
-				        <h4 class="modal-title">Setup Vote</h4>
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				      </div>
-
-				      <!-- Modal body -->
-				      <div class="modal-body">
-				        <form>
-				        <p id="jqueryExample">
-						    <input type="text" class="date start" />
-						    <input type="text" class="time start" /> to
-						    <input type="text" class="time end" />
-						    <input type="text" class="date end" />
-						</p>
-
-				        </form>
-				      </div>
-
-				      <!-- Modal footer -->
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Activate</button>
-				      </div>
-
-				    </div>
-				  </div>
-				</div>
-				<!-- The Modal 2 -->
-				<div class="modal fade" id="myModal1">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-
-				      <!-- Modal Header -->
-				      <div class="modal-header">
-				        <h4 class="modal-title">Setup Vote</h4>
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				      </div>
-
-				      <!-- Modal body -->
-				      <div class="modal-body">
-				        <form>
-				          <div class="form-group">
+                <div class="card-body">
+                	<form action="{{route('activate')}}" method="post">
+				       		
+				          <div id="defaultDeltaExample" class="form-group">
+				          	<input type="hidden" name="type" value="student candidate vote">
+				          	<input type="hidden" id="status" name="status" value="Active">
 				            <label for="recipient-name" class="col-form-label">Start Date:</label>
-				            <input type="text" class="form-control" id="recipient-name">
+				            <input type="text" id="startdate" name="startdate" class="form-control date end" >
 				          </div>
-				          <div class="form-group">
-				            <label for="a1" class="col-form-label">End Date</label>
-				            <input type="text" class="form-control" id="a1">
+				          <div id="defaultDeltaExample" class="form-group">
+				            <label for="a1"  class="col-form-label">End Date</label>
+				           <input type="text" id="enddate" name="enddate" class="form-control date end">
+				           
 				          </div>
-				        </form>
-				        <p id="defaultDeltaExample">
-						    <input type="text" class="date start" />
-						    <input type="text" class="time start" /> to
-						    <input type="text" class="time end" />
-						    <input type="text" class="date end" />
-						</p>
-						
+				          <input type="hidden" name="_token" value="{{csrf_token()}}">
+				       <button type="submit" class="btn btn-primary" name="privote">Activate</button>
+				    </form>  
 				      </div>
 
-				      <!-- Modal footer -->
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Activate</button>
-				      </div>
-
-				    </div>
+				      <div class="card-footer"></div>
 				  </div>
-				</div>
+				  </div>
+				  </div>
+				  </div>
+				  </div>
+				      <div id="demo" class="collapse">
+				       	<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Setup Student Representative Vote') }}</div>
 
+                <div class="card-body">
+				       		<form action="{{route('activate')}}" method="post">
+				       		
+				          <div id="defaultDeltaExample" class="form-group">
+				          	<input type="hidden" name="type" value="Student Representative Vote">
+				          	<input type="hidden" id="status" name="status" value="Active">
+				            <label for="recipient-name" class="col-form-label">Start Date:</label>
+				            <input type="text" id="startdate" name="startdate" class="form-control date end" >
+				          </div>
+				          <div id="defaultDeltaExample" class="form-group">
+				            <label for="a1"  class="col-form-label">End Date</label>
+				           <input type="text" id="enddate" name="enddate" class="form-control date end">
+				           
+				          </div>
+				          <input type="hidden" name="_token" value="{{csrf_token()}}">
+				       <button type="submit" class="btn btn-primary" name="privote">Activate</button>
+				    </form> 
+				      <div class="card-footer"></div>
+				  </div>
+				  </div>
+				  </div>
+				  </div>
+				  </div>
+				      </div>
+<div id="demo2" class="collapse">
+	@include('inc.activevotes')
+				  </div>
 @endsection
 @section('script')
 <!-- include input widgets; this is independent of Datepair.js -->

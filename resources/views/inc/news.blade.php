@@ -1,18 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
 
-            @if(Request:: is ('home'))
-               @include('inc.showcase')
-               @endif
-             @if(Request:: is ('home'))
-                @include('inc.slideshow')
-             @endif
+@extends('layouts.app')
 
 
 
-         <h3><b>Vote News</b></h3>
+@section('content2')
+     <h3>Vote News</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -21,10 +14,12 @@
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           <a class="btn btn-primary btn-sm" href="#" role="button">View Details >></a>
        </p>
-      <br><br>
-
-
-       <h3><b>Vote Details</b></h3>
+@endsection
+  
+  
+    @section('sidebar')
+      @parent
+    
            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -33,5 +28,14 @@
            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
              <a class="btn btn-primary btn-sm" href="/su_vote" role="button">View Details >></a>
            </p>
+   
+    @endsection 
+     </div>
+    @section('slideshow')
+       
+      
+    @endsection
+
+
+      
     </div>
-@endsection

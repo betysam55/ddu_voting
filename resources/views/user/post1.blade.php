@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="bootstrap-iso container">
 
     <div class="row">
 
@@ -11,55 +11,73 @@
 
             <div class="panel panel-default">
 
-                <div class="panel-heading">Posts</div>
-
 
                 <div class="panel-body">
 
+                    <form action="{{ route('posts.update') }}" method="POST">
 
-                    <table class="table table-bordered">
+                        {{ csrf_field() }}
 
-                        <tr>
+                    <div class="card">
 
-                            <th>Id</th>
+                        <div class="container-fliud">
 
-                            <th>Name</th>
+                            <div class="wrapper row">
 
-                            <th width="400px">Star</th>
+                                <div class="preview col-md-6">
 
-                            <th width="100px">View</th>
+                                    
 
-                        </tr>
+                                    <div class="preview-pic tab-content">
 
-                        @if($posts->count())
+                                      <div class="tab-pane active" id="pic-1"><img src="https://dummyimage.com/500x450/000/fff" /></div>
 
-                            @foreach($posts as $post)
+                                    </div>
 
-                            <tr>
 
-                                <td>{{ $post->id }}</td>
+                                </div>
 
-                                <td>{{ $post->name }}</td>
+                                <div class="details col-md-6">
 
-                                <td>
+                                    <h3 class="product-title">Representative Vote System</h3>
 
-                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $post->averageRating }}" data-size="xs" disabled="">
+                                    <div class="rating">
 
-                                </td>
+                                        <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="100" data-step="0.2" value="{{ $post->userAverageRating }}" data-size="xs">
 
-                                <td>
+                                        <input type="hidden" name="id" required="" value="{{ $post->id }}">
+                                        <input type="hidden" name="user_id" required="" value="{{auth::user()->id}}">
 
-                                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        <span class="review-no">422 reviews</span>
 
-                                </td>
+                                        <br/>
 
-                            </tr>
+                                        <button class="btn btn-success">Submit Review</button>
 
-                            @endforeach
+                                    </div>
 
-                        @endif
+                                    <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
 
-                    </table>
+                                    <h4 class="price"></h4>
+
+                                    <p class="vote"><strong>91%</strong> of students vote this student<strong>(87 votes)</strong></p>
+
+                                    
+
+                                    
+                                    <div class="action">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </form>
 
 
                 </div>
@@ -73,10 +91,72 @@
 </div>
 
 
-<script type="text/javascript">
 
-    $("#input-id").rating();
 
-</script>
+@endsection
+@section('script')
+ <script>
+        jQuery(document).ready(function () {
+            $("#input-21f").rating({
+                starCaptions: function (val) {
+                    if (val < 3) {
+                        return val;
+                    } else {
+                        return 'high';
+                    }
+                },
+                starCaptionClasses: function (val) {
+                    if (val < 3) {
+                        return 'label label-danger';
+                    } else {
+                        return 'label label-success';
+                    }
+                },
+                hoverOnClear: false
+            });
+            var $inp = $('#rating-input');
 
+            $inp.rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'lg',
+                showClear: false
+            });
+
+            $('#btn-rating-input').on('click', function () {
+                $inp.rating('refresh', {
+                    showClear: true,
+                    disabled: !$inp.attr('disabled')
+                });
+            });
+
+
+            $('.btn-danger').on('click', function () {
+                $("#kartik").rating('destroy');
+            });
+
+            $('.btn-success').on('click', function () {
+                $("#kartik").rating('create');
+            });
+
+            $inp.on('rating.change', function () {
+                alert($('#rating-input').val());
+            });
+
+
+            $('.rb-rating').rating({
+                'showCaption': true,
+                'stars': '3',
+                'min': '0',
+                'max': '3',
+                'step': '1',
+                'size': 'xs',
+                'starCaptions': {0: 'status:nix', 1: 'status:wackelt', 2: 'status:geht', 3: 'status:laeuft'}
+            });
+            $("#input-21c").rating({
+                min: 0, max: 8, step: 0.5, size: "xl", stars: "8"
+            });
+        });
+    </script>
 @endsection

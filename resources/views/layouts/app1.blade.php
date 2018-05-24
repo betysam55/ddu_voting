@@ -40,7 +40,7 @@
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/news">
               <i class="fa d-inline fa-lg fa-bookmark-o"></i> News</a>
           </li>
           <li class="nav-item">
@@ -66,7 +66,22 @@
  <div class="btn-group">
             <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fa d-inline fa-lg fa-user-circle-o"></i> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" v-pre href=""
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('repvote-form').submit();">
+                                        <i class="fa fa-btn fa-thumbs-up"></i>{{ __(' Representative Vote') }}
+                                    </a>
+                                     <form id="repvote-form" action="{{ route('posts') }}" method="Get" style="display: none;">
+                                        @csrf
+                                    </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"  href=""
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('profile-form').submit();">
+                                        <i class="fa d-inline fa-lg fa-user-circle-o"></i>{{ __(' Profile') }}</a>
+             <form id="profile-form" action="home/profile/{{Auth::user()->id }}" method="POST" style="display: none;">
+                        @csrf
+            </form>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item"  href=""
                                        onclick="event.preventDefault();
