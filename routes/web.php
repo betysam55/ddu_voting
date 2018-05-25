@@ -35,7 +35,7 @@ Route::get('addpost', 'PostController@addpost');
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index')->name('profile');
 Route::post('/home/profile/{id}', 'UserProfileController@update')->name('profile');
-Route::get('/user/privilage', 'UserController@previlage');
+Route::get('/user/privilage', 'PrevilageController@previlage');
 Route::get('/report', 'ReportController@index');
 Route::get('/setup/vote', 'VoteController@index');
 Route::post('/setup/vote', 'VoteController@activate')->name('activate');
@@ -48,3 +48,12 @@ Route::post('representativevote', 'RepresentativeVoteController@postPost')->name
 
 Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('posts.show');
 
+Route::get('/user/privilage/admin/{id}', 'PrevilageController@admin');
+Route::get('/user/privilage/user/{id}', 'PrevilageController@user');
+Route::get('/user/privilage/candidate/{id}', 'PrevilageController@candidate');
+
+Route::get('presidentvote', 'PresidentVoteController@posts')->name('pposts');
+
+Route::post('presidentvote', 'PresidentVoteController@postPost')->name('pposts.post');
+
+Route::get('presidentvote/{id}', 'PresidentVoteController@show')->name('pposts.show');

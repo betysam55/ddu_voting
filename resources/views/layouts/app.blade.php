@@ -70,7 +70,7 @@
  <div class="btn-group">
             <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" v-pre href=""
+              <a v-pre class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" href="#" 
                                        onclick="event.preventDefault();
                                                      document.getElementById('repvote-form').submit();">
                                         <i class="fa fa-btn fa-thumbs-up"></i>{{ __(' Representative Vote') }}
@@ -78,8 +78,16 @@
                                      <form id="repvote-form" action="{{ route('posts') }}" method="Get" style="display: none;">
                                         @csrf
                                     </form>
+              <a v-pre class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" href="#" 
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('prevote-form').submit();">
+                                        <i class="fa fa-btn fa-thumbs-up"></i>{{ __(' President Vote') }}
+                                    </a>
+                                     <form id="prevote-form" action="{{ route('pposts') }}" method="Get" style="display: none;">
+                                        @csrf
+                                    </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item"  href=""
+              <a v-pre class="dropdown-item"  href="#"
                                        onclick="event.preventDefault();
                                                      document.getElementById('profile-form').submit();">
                                         <i class="fa d-inline fa-lg fa-user-circle-o"></i>{{ __(' Profile') }}</a>

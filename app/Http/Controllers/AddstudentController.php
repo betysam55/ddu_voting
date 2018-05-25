@@ -8,13 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 class AddstudentController extends Controller
 {
-  //    public function index()
-  //   {   
-		// $data=User::all();
-  //       // dd($data);
-  //           return view('admin.add_user', ['users' => $data]);
-        
-  //   }
 	 public function index(){
      	$data = DB::table('users')->where('Status', '=', 'New')->get();
      	

@@ -6,40 +6,49 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Students') }}
-                	<button class="btn btn-info pull-right">Load</button>
+                	
                 </div>
                 <div class="card-body">
                     <table class="table table-borderd table-striped table-condensed">
                     	<thead>
                     		<tr>
                     			<th>NO</th>
-                    			<th>ID</th>
                     			<th>First Name</th>
                     			<th>Last Name</th>
                     			<th>Dipartment</th>
                     			<th>Batch</th>
+                    			<th>Role</th>
                     			<th>Action</th>
                     		</tr>
-{{csrf_field()}}
+{{csrf_field()}} 
 			<?php $no=1; ?>
 			
 			@foreach ($users as $key=>$value)
 				<tr class="post{{$value->id}}">
 					<td>{{$no++}}</td>
-					<td>{{$value->student_id}}</td>
 					<th>{{$value->fname}}</th>
 					<td>{{$value->lname}}</td>
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
+					<td>@if($value->role==1)
+							Administrator
+						@elseif($value->role==0)
+							User
+						@elseif($value->role==2)
+							Candidate
+						@endif</td>
 					<td>
-						<a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
-							<i class="fa fa-eye"></i>
+						<a href="/user/privilage/candidate/{{$value->id}}" onclick="return confirm('Are want to set to Candidate Mode?')" class=" btn btn-warning btn-sm">
+							<i class="fa fa-plus">Set Candidate</i>
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
 						</a>
-						<a href="#" class="show-modal btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
-							<i class="fa fa-pencil"></i>
+						<a href="/user/privilage/user/{{$value->id}}" onclick="return confirm('Are you want to set to User Mode?')" class=" btn btn-success btn-sm">
+							<i class="fa fa-plus">Set User</i>
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
 						</a>
-						<a href="#" class="show-modal btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
-							<i class="fa fa-trash "></i>
+						<a href="/user/privilage/admin/{{$value->id}}" onclick="return confirm('Are want to set to Administrator Mode?')" class=" btn btn-danger btn-sm">
+							<i class="fa fa-plus">Set Admin</i>
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
 						</a>
 					</td>
 					
@@ -53,16 +62,5 @@
         </div>
     </div>
 </div>
-
-@endsection
-@section('script')
-
-<script type="text/javascript">
-	$('#read-data').on('click',function(){
-		$.get("{{URL::to('add/new/student/read-data')}}",function(data){
-			$('#student_info').empty()html(data);
-		})
-	})
-</script>
 
 @endsection

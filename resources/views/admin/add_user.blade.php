@@ -34,12 +34,12 @@
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
 					<td>
-						<a href="/add/new/student/{{$value->id}}"  class="btn btn-info btn-sm" type="submit" data-id="" data-title="" data-body="">
+						<a href="/add/new/student/{{$value->id}}"  class="btn btn-info btn-sm" type="submit">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="hidden" name="Approved" value="Approved">
 							<i class="fa fa-thick">Approve</i>
 						</a>
-                        <a href="/add/new/student/deny/{{$value->id}}"  class="btn btn-danger btn-sm" type="submit" data-id="" data-title="" data-body="">
+                        <a href="/add/new/student/deny/{{$value->id}}"  class="btn btn-danger btn-sm" type="submit" >
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="hidden" name="Deny" value="Deny">
                             <i class="fa fa-close">Deny</i>

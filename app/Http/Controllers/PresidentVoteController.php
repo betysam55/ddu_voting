@@ -7,10 +7,14 @@ use App\User;
 use auth;
 use DB;
 use App\Vote;
+use App\Candidates;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Collection;
-class RepresentativeVoteController extends Controller
+class PresidentVoteController extends Controller
 {
+
+
+
       /**
 
      * Create a new controller instance.
@@ -52,10 +56,9 @@ class RepresentativeVoteController extends Controller
     public function posts()
 
     {
-        $dep=Auth::user()->department;
-        $posts=user::all()->where('department', '=',$dep);
+        $posts=Candidates::all();
           
-        return view('user.representativevote',compact('posts'));
+        return view('candidates.candidatevote',compact('posts'));
 
     }
 
@@ -64,9 +67,9 @@ class RepresentativeVoteController extends Controller
 
     {
 
-        $post = User::find($id);
+        $post = Candidates::find($id);
 
-        return view('user.vote',compact('post'));
+        return view('candidates.candidatesview',compact('post'));
 
     }
 
@@ -76,7 +79,7 @@ class RepresentativeVoteController extends Controller
 
         request()->validate(['rate' => 'required']);
 
-        $post = User::find($request->id);
+        $post = Candidates::find($request->id);
 
         $rating = new \willvincent\Rateable\Rating;
 
@@ -88,9 +91,11 @@ class RepresentativeVoteController extends Controller
         $post->ratings()->save($rating);
 
        
-        return redirect()->route("posts"); 
+        return redirect()->route("pposts"); 
             }
         
 
     }
      
+
+
