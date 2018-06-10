@@ -110,8 +110,14 @@
   </nav>
   @else
   @endguest
-   @if($latest->status=='new')
+  @if(session()->has('message'))
+                      <div class="alert alert-primary ">
+                          <center><strong>{{session()->get('message')}}</strong></center>
+                      </div>
+                                        @else
+   @if($latest->status=='Active')
             @include('inc.votestatus')
+          @endif
           @endif
   <div class="py-5">
     <div class="container">

@@ -22,8 +22,8 @@
 							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">{{ __('Setup Student Candidate Vote') }}
 							</button>
 						</div>
-							<div class="col-md-12 col-lg-4"><button type="button" class="btn btn-info pull-right " data-toggle="collapse" data-target="#demo2">{{ __('Active vote') }}
-							</button>
+							<div class="col-md-12 col-lg-4"><a href="{{route('viewActiveVote')}}"><button type="button" class="btn btn-info pull-right">{{ __('Active vote') }}
+							</button></a>
 						</div>
 						
                     </div>
@@ -102,9 +102,7 @@
 				  </div>
 				  </div>
 				      </div>
-<div id="demo2" class="collapse">
-	@include('inc.activevotes')
-				  </div>
+
 @endsection
 @section('script')
 <!-- include input widgets; this is independent of Datepair.js -->
@@ -124,7 +122,7 @@
     });
 
     $('#jqueryExample .date').datepicker({
-        'format': 'm/d/yyyy',
+        'format': 'yyyy-mm-dd',
         'autoclose': true
     });
 
@@ -138,7 +136,7 @@
                 });
 
                 $('#defaultDeltaExample .date').datepicker({
-                    'format': 'm/d/yyyy',
+                    'format': 'yyyy-mm-dd',
                     'autoclose': true
                 });
 

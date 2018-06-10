@@ -4,14 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ActivateVote;
+use Carbon;
 
 class VoteController extends Controller
 {
 	public  function index(){
-        
-       $data=ActivateVote::all();
-            return view('admin.vote',['vote' => $data]);
-       
+        $data=ActivateVote::latest()->first();
+         if ($data!=null) {
+             return view('admin.vote',['vote' => $data]);
+         } 
+       else{
+            session()->flash('message', 'No data available');
+         
+             return view('admin.vote',['vote' => $data]);
+
+           }
+
+    }
+    public  function display(){
+        $data=ActivateVote::latest()->first();
+         if ($data!=null) {
+             return view('inc.activevotes',['vote' => $data]);
+         } 
+       else{
+            session()->flash('message', 'No data available');
+         
+             return view('inc.activevotes',['vote' => $data]);
+
+           }
 
     }
     public  function activate(Request $request)
@@ -39,8 +59,47 @@ class VoteController extends Controller
 
     }
     public function view(){
-         $data=ActivateVote::all();
-            return view('inc.activevotes',['vote' => $data]);
-       
+
+         $data=ActivateVote::latest()->first();
+         if ($data!=null) {
+             return view('inc.activevotes',['vote' => $data]);
+         } 
+       else{
+            session()->flash('message', 'No data available');
+         
+             return view('inc.activevotes',['vote' => $data]);
+
+           }
     }
+    public function delete1()
+    {
+        $data=ActivateVote::latest()->first();
+           $mytime = Carbon\Carbon::now();
+           if ($data!=null) {
+             $start=$data->enddate;
+           $today=$mytime->toDateString();
+           if ($start==$today) {
+                       
+           }
+           else  {
+               
+           }  # code...
+           }
+           else{
+            session()->flash('message', 'No data available');
+         
+             return view('inc.activevotes',['vote' => $data]);
+
+           }
+
+
+    }
+    public function destroy(request $vote)
+       {  
+          $data=ActivateVote::find($vote)->get();
+           dd($data);
+           // $data->delete();
+           // session()->flash('message','successfully deleted');
+           // return redirect()->back();
+       }
 }

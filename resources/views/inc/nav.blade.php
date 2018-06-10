@@ -39,7 +39,10 @@
   <div class="btn-group">
             <button class="btn navbar-btn ml-2 text-white btn-secondary dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span> </button>
             <div class="dropdown-menu">
-              @if($latest->status=='new')
+              @if(session()->has('message'))
+          <p></p>
+           @else
+              @if($latest->status=='Active')
               @if($latest->type=='Student Representative Vote')
               <a v-pre class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" href="#" 
                                        onclick="event.preventDefault();
@@ -52,7 +55,8 @@
               <div class="dropdown-divider"></div>
               @endif
               @endif
-              @if($latest->status=='new')
+
+              @if($latest->status=='Active')
               @if($latest->type=='student candidate vote')
               <a v-pre class="dropdown-item" role="button" aria-haspopup="true" aria-expanded="false" href="#" 
                                        onclick="event.preventDefault();
@@ -63,6 +67,7 @@
                                         @csrf
                                     </form>
               <div class="dropdown-divider"></div>
+              @endif
               @endif
               @endif
               <a v-pre class="dropdown-item"  href="#"

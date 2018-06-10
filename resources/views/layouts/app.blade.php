@@ -35,10 +35,15 @@
         @include('inc.nav')   
 
         <main class="py-4">
-          @if($latest->status=='new')
+          @if(session()->has('message'))
+          <p></p>
+           @else
+          @if($latest->status=='Active')
             @include('inc.votestatus')
           @endif
+@endif
             @yield('content')
+
         </main>
     </div>
     <footer>

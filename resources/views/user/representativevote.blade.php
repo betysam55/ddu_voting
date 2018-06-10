@@ -45,13 +45,17 @@
                                 <td>{{ $post->department }}</td>
                                 <td>
                                 
-                                   {{ $post->ratingPercent(100) }}
+                                   <div class="progress">
+                                        <div class="progress-bar progress-bar-sm progress-bar-striped progress-bar-animated" style="width:<?php 
+                                   $id=$post->ratingPercent(100);
+                                   echo $id;  ?>%">{{$post->ratingPercent(100)}}</div>
+                                    </div>
                                   
                                 </td>
                                 
                                 <td>
                                     
-                                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{ route('postsshow',$post->id) }}" class="btn btn-primary btn-sm">View</a>
                                 </td>
 
                             </tr>

@@ -43,6 +43,7 @@ Route::post('/home/profile/{id}', 'UserProfileController@update')->name('profile
 Route::get('/user/privilage', 'PrevilageController@previlage');
 Route::get('/report', 'ReportController@index');
 Route::get('/setup/vote', 'VoteController@index');
+Route::get('/setup/vote1', 'VoteController@delete1');
 Route::post('/setup/vote', 'VoteController@activate')->name('activate');
 Route::get('/add/new/student/{id}','AddstudentController@update');
 Route::get('/add/new/student/deny/{id}','AddstudentController@deny');
@@ -51,7 +52,7 @@ Route::get('representativevote', 'RepresentativeVoteController@posts')->name('po
 
 Route::post('representativevote', 'RepresentativeVoteController@postPost')->name('posts.post');
 
-Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('posts.show');
+Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('postsshow');
 
 Route::get('/user/privilage/admin/{id}', 'PrevilageController@admin');
 Route::get('/user/privilage/user/{id}', 'PrevilageController@user');
@@ -69,5 +70,8 @@ Route::get('post', function(){
 	$post = DB::table('posts')->get();
 	return view('admin.post', ['posts' => $post]);
 });
+
 Route::resource('posts', 'PostController');
+Route::post('vote/delete/{id}', 'VoteController@destroy')->name('deletevote');
 Route::resource('campaignposts', 'CampaignPostController');
+Route::get('/admin/view/active/vote','VoteController@display')->name('viewActiveVote');

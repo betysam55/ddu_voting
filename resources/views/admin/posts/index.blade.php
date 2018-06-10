@@ -31,7 +31,7 @@
 					<td>{{$no++}}</td>
 					<td>{{$value->title}}</td>
 					<td>{{$value->body}}</td>
-					<td>{{$value->created_at}}</td>
+					<td>{{$value->created_at->diffForHumans()}}</td>
 					<td>
                     <a href="{{route('posts.show', $value->id)}}" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-eye"></i>
