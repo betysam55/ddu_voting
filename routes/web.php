@@ -21,10 +21,15 @@ Route::get('/home',function(){
 	if (Auth::user()->role==0) {
 		return view('home');
 	}
-	else
+	else if(Auth::user()->role==1)
 	{
 		$users['users']=\App\User::all();
 		return view('admin.home',$users);
+	}
+	else if(Auth::user()->role==2)
+	{
+		$users['users']=\App\User::all();
+		return view('candidates.home',$users);
 	}
 })->name('home');
 });
@@ -57,3 +62,12 @@ Route::get('presidentvote', 'PresidentVoteController@posts')->name('pposts');
 Route::post('presidentvote', 'PresidentVoteController@postPost')->name('pposts.post');
 
 Route::get('presidentvote/{id}', 'PresidentVoteController@show')->name('pposts.show');
+
+Route::POST('addPost', 'PostController@addPost');
+
+Route::get('post', function(){
+	$post = DB::table('posts')->get();
+	return view('admin.post', ['posts' => $post]);
+});
+Route::resource('posts', 'PostController');
+Route::resource('campaignposts', 'CampaignPostController');

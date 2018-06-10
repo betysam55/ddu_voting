@@ -110,6 +110,9 @@
   </nav>
   @else
   @endguest
+   @if($latest->status=='new')
+            @include('inc.votestatus')
+          @endif
   <div class="py-5">
     <div class="container">
       <div class="row">

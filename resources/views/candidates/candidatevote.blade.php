@@ -44,8 +44,12 @@
                                 <td>{{ $post->lname }}</td>
                                 <td>{{ $post->department }}</td>
                                 <td>
-                                
-                                   {{ $post->ratingPercent(100) }}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-sm progress-bar-striped progress-bar-animated" style="width:<?php 
+                                   $id=$post->ratingPercent(100);
+                                   echo $id;  ?>%">{{$post->ratingPercent(100)}}</div>
+                                    </div>
+
                                   
                                 </td>
                                 
