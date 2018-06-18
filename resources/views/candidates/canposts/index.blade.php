@@ -16,7 +16,7 @@
 				<th> Body</th>
 				<th >created at</th>
 				<th class="text-center" width="150px">
-					<a href="{{route('campaignposts.create')}}" id="" class=" btn btn-success btn-md">
+					<a href="{{route('canposts.create')}}" id="" class=" btn btn-success btn-md">
 					<!--<i class="glyphicon glyphicon-plus"></i>	  -->
 						
 						<i class="fa fa-plus">Add Post</i>
@@ -26,23 +26,23 @@
 			{{csrf_field()}}
 			<?php $no=1; ?>
 			<!--     // $post as $key => $value if return view('admin.post',compact('post'));-->
-			@foreach ($posts as $key => $value)
+			@foreach ($cposts as $key => $value)
 				<tr class="post{{$value->id}}">
 					<td>{{$no++}}</td>
-					<td>{{$value->title}}</td>
-					<td>{{$value->body}}</td>
+					<td>{{ str_limit($value->title,15) }}</td>
+					<td>{!! str_limit($value->body,300) !!}</td>
 					<td>{{$value->created_at}}</td>
 					<td>
-                    <a href="{{route('campaignposts.show', $value->id)}}" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+                    <a href="{{route('canposts.show', $value->id)}}" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-eye"></i>
 						</a>
-						<a href="{{route('campaignposts.edit', $value->id)}}" class="btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+						<a href="{{route('canposts.edit', $value->id)}}" class="btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-pencil"></i>
 						</a>
 					{{--	<a href="#" class="delete-modal btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-trash "></i>
                         </a>  --}}
-                        <form onsubmit="return confirm('Are you you wanna delete this post?')" class="float-right" method="post" action="{{route('campaignposts.destroy', $value->id)}}">
+                        <form onsubmit="return confirm('Are you you wanna delete this post?')" class="float-right" method="post" action="{{route('canposts.destroy', $value->id)}}">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -52,7 +52,7 @@
 			@endforeach
         </table>
         <div class="mt-4">
-            {{$posts->links()}}
+            {{$cposts->links()}}
        </div>
    
 	</div>

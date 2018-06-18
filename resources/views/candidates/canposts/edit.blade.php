@@ -13,16 +13,16 @@
       {{session()->get('message')}}
   </div>
 @endif
-<form action="{{route('campaignposts.update', $post->id)}}" method="post">
+<form action="{{route('canposts.update', $canpost->id)}}" method="post">
     @csrf
     @method('put')
     <div class="form-group">
     <label for="title"  >Title</label>
-        <input type="text" name="title" id="title" class="form-control" value="{{$post->title}}">
+        <input type="text" name="title" id="title" class="form-control" value="{{$canpost->title}}">
     </div>
     <div class="form-group">
         <label for="body">Body</label>
-    <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{$post->body}}</textarea>
+    <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{$canpost->body}}</textarea>
     </div>
     <div class="form-group">
          <button type="submit" class="btn btn-outline-primary"> Update the Post</button>

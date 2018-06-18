@@ -16,13 +16,13 @@ class CampaignPostController extends Controller
           //1
         //  $posts = Post::all();
             //$posts = Post::orderBy('id', 'desc')->get();
-            $posts = CampaignPost::orderBy('id', 'desc')->paginate(3);
-          return view('candidates/posts.index', ['posts' => $posts]);
+            $cpost = CampaignPost::orderBy('id', 'desc')->paginate(3);
+          return view('candidates/canposts.index', ['cposts' => $cpost]);
     }
    public function create()
       {
           //2
-          return view('candidates/posts.create');
+          return view('candidates/canposts.create');
     }
    public function store(Request $request)
       {
@@ -37,32 +37,32 @@ class CampaignPostController extends Controller
             'body' =>  $request->body,
         ]);
        // return 'Blen';
-       return redirect(route('campaignposts.index'));
+       return redirect(route('canposts.index'));
       }
-    public function show(CampaignPost $post)
+    public function show(CampaignPost $canpost)
       {
         //4
-        return view('candidates/posts.show', ['post' => $post]);
+        return view('candidates/canposts.show', ['canpost' => $canpost]);
       }
-    public function edit(CampaignPost $post)
+    public function edit(CampaignPost $canpost)
       {
           //5
-          return view('candidates/posts.edit', compact('post'));
+          return view('candidates/canposts.edit', compact('canpost'));
       } 
-    public function update(Request $request, CampaignPost $post)
+    public function update(Request $request, CampaignPost $canpost)
        {
          //6
-         $post->title = $request->title;
-         $post->body = $request->body;
-         $post->save();
+         $canpost->title = $request->title;
+         $canpost->body = $request->body;
+         $canpost->save();
          session()->flash('message', 'Your post have been updated successfully');
          return redirect()->back();
        }
-    public function destroy(CampaignPost $post)
+    public function destroy(CampaignPost $canpost)
        {
            //7
-           $post->delete();
-           return redirect(route('campaignposts.index'));
+           $canpost->delete();
+           return redirect(route('canposts.index'));
        }
        public function userview(){
       $post=CampaignPost::all();

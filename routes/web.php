@@ -12,6 +12,14 @@
 */
 Auth::routes();
 Route::get('/', function () {
+	$data=\App\ActivateVote::latest()->first();
+           $mytime = Carbon\Carbon::now();
+           if ($data!=null) {
+             $end=$data->enddate;
+           $today=$mytime->toDateString();
+           if ($end==$today) {
+                $data->status='disabled';
+                $data->save();}}
     return view('welcome');
 });
 
@@ -49,29 +57,33 @@ Route::get('/add/new/student/{id}','AddstudentController@update');
 Route::get('/add/new/student/deny/{id}','AddstudentController@deny');
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::get('representativevote', 'RepresentativeVoteController@posts')->name('posts');
-
 Route::post('representativevote', 'RepresentativeVoteController@postPost')->name('posts.post');
-
 Route::get('representativevote/{id}', 'RepresentativeVoteController@show')->name('postsshow');
-
 Route::get('/user/privilage/admin/{id}', 'PrevilageController@admin');
 Route::get('/user/privilage/user/{id}', 'PrevilageController@user');
 Route::get('/user/privilage/candidate/{id}', 'PrevilageController@candidate');
-
 Route::get('presidentvote', 'PresidentVoteController@posts')->name('pposts');
-
 Route::post('presidentvote', 'PresidentVoteController@postPost')->name('pposts.post');
-
 Route::get('presidentvote/{id}', 'PresidentVoteController@show')->name('pposts.show');
-
 Route::POST('addPost', 'PostController@addPost');
-
 Route::get('post', function(){
 	$post = DB::table('posts')->get();
 	return view('admin.post', ['posts' => $post]);
 });
-
 Route::resource('posts', 'PostController');
 Route::post('vote/delete/{id}', 'VoteController@destroy')->name('deletevote');
-Route::resource('campaignposts', 'CampaignPostController');
+
+Route::resource('canposts', 'CampaignPostController');
+
+
 Route::get('/admin/view/active/vote','VoteController@display')->name('viewActiveVote');
+Route::get('pp', 'VoteController@delete1');
+Route::get('/result', function (){
+	return view('candidates.result');
+});
+Route::get('/adm/result', function (){
+	return view('admin.result');
+});
+Route::get('/campaign/post',function(){
+	return view('user.campaignpost');
+});

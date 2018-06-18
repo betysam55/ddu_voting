@@ -30,7 +30,7 @@
 
                                     <div class="preview-pic tab-content">
 
-                                      <div class="tab-pane active" id="pic-1"><img src="https://dummyimage.com/500x450/000/fff" /></div>
+                                      <div class="tab-pane active" id="pic-1"><img src="{{asset('uploads/images/default.jpg')}}" /></div>
 
                                     </div>
 
@@ -48,19 +48,19 @@
                                         <input type="hidden" name="id" required="" value="{{ $post->id }}">
                                         <input type="hidden" name="user_id" required="" value="{{ $post->id }}">
     
-                                        <span class="review-no">422 reviews</span>
+                                        <span class="review-no"></span>
 
                                         <br/>
 
-                                        <button class="btn btn-success">Submit Review</button>
+                                        <button class="btn btn-success">Submit vote</button>
 
                                     </div>
 
-                                    <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                                    <p class="product-description">If you want to have changes done not just told, If you want to have rights that are well secured, If you want to have a president that stand for students and fully uplhold the law, then I advise you to vote for me ! </p>
 
                                     <h4 class="price"></h4>
 
-                                    <p class="vote"><strong>91%</strong> of students vote this student<strong>(87 votes)</strong></p>
+                                    <p class="vote"><strong></strong> thanks for voting!<strong></strong></p>
 
                                     
 

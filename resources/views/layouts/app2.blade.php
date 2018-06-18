@@ -42,7 +42,7 @@
                     <i class="fa fa-home fa-home"></i>&nbsp;Home</a>
                 </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="{{route('campaignposts.index')}}">Post Campaign</a>
+                  <a class="nav-link" href="{{route('canposts.index')}}">Post Campaign</a>
                 </li>
                 <li class="nav-item">
                   <a href="/result" class="nav-link">View result</a>

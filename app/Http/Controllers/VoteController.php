@@ -75,15 +75,16 @@ class VoteController extends Controller
     {
         $data=ActivateVote::latest()->first();
            $mytime = Carbon\Carbon::now();
+            
+            
            if ($data!=null) {
-             $start=$data->enddate;
+             $end=$data->enddate;
            $today=$mytime->toDateString();
-           if ($start==$today) {
-                       
+           if ($end==$today) {
+                $data->status='disabled';
+                $data->save();
+                
            }
-           else  {
-               
-           }  # code...
            }
            else{
             session()->flash('message', 'No data available');

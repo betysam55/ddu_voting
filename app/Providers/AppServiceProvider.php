@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 use App\ActivateVote;
+use App\Candidates;
+use App\PresidentVote;
+use Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -88,7 +91,6 @@ class AppServiceProvider extends ServiceProvider
            view()->composer('welcome',function($view)
             {
                 $latest=\App\ActivateVote::latest()->first();
-                
                 if ($latest!=null) {
              $view->with('latest',$latest);
              } 
@@ -96,6 +98,51 @@ class AppServiceProvider extends ServiceProvider
             session()->flash('message', 'There Is No Active Vote');
          
              $view->with('latest',$latest);
+
+           }
+                
+            });
+             view()->composer('welcome',function($view)
+            {
+                $candidate=\App\Candidates::get()->all();
+                
+                if ($candidate!=null) {
+             $view->with('candidate',$candidate);
+             } 
+           else{
+            session()->flash('message', 'There Is No Active Vote');
+         
+             $view->with('candidate',$candidate);
+
+           }
+                
+            });
+             view()->composer('inc.voteresult',function($view)
+            {
+                $candidate=\App\Candidates::get()->all();
+                
+                if ($candidate!=null) {
+             $view->with('candidate',$candidate);
+             } 
+           else{
+            session()->flash('message', 'There Is No Active Vote');
+         
+             $view->with('candidate',$candidate);
+
+           }
+                
+            });
+             view()->composer('inc.campaignpost',function($view)
+            {
+                $campaignpost=\App\campaignpost::get()->all();
+                
+                if ($campaignpost!=null) {
+             $view->with('campaignpost',$campaignpost);
+             } 
+           else{
+            session()->flash('message', 'There Is No Active Vote');
+         
+             $view->with('inc.campaignpost',$campaignpost);
 
            }
                 
@@ -114,3 +161,4 @@ class AppServiceProvider extends ServiceProvider
     }
    
 }
+ 

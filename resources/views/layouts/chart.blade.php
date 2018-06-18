@@ -1,61 +1,35 @@
 
 <div class="bootstrap-iso container">
-	<div class="jumbotron" style="height: 1000px;">
+	<div class="jumbotron" style="height: 500px;">
 		<div class="chart-iso content">
-			<p><h1>Organization Chart</h1>
+		<center><h3>ህብረቱ በሚከተለው መልኩ የተዋቀረ ነው</h3><br></center>
   <figure class="chart-iso org-chart cf">
     <ul class="administration">
       <li>          
         <ul class="director">
           <li>
-            <a href="#"><span>Director</span></a>
+            <a href="#"><span>ጠቅላላ ጉባኤ</span></a>
             <ul class="subdirector">
-              <li><a href="#"><span>Assistante Director</span></a></li>
+              <li><a href="#"><span>ዋና ስራ አስፈፃሚ</span></a></li>
             </ul>
             <ul class="departments cf">               
-              <li><a href="#"><span>Administration</span></a></li>
+              <li><a href="#"><span>የዘርፍ አመራሮች/ሥራ አስፈፃሚዎች 
+</span></a></li>
               
               <li class="department dep-a">
-                <a href="#"><span>Department A</span></a>
-                <ul class="sections">
-                  <li class="section"><a href="#"><span>Section A1</span></a></li>
-                  <li class="section"><a href="#"><span>Section A2</span></a></li>
-                  
-                </ul>
+                <a href="#"><span>የዲሲፕሊን ኮሚቴ</span></a>
               </li>
               <li class="department dep-b">
-                <a href="#"><span>Department B</span></a>
-                <ul class="sections">
-                  <li class="section"><a href="#"><span>Section B1</span></a></li>
-                  <li class="section"><a href="#"><span>Section B2</span></a></li>
-                  <li class="section"><a href="#"><span>Section B3</span></a></li>
-                  
-                </ul>
+                <a href="#"><span>የአካዳሚክ ኮሚቴ</span></a>
               </li>
               <li class="department dep-c">
-                <a href="#"><span>Department C</span></a>
-                <ul class="sections">
-                  <li class="section"><a href="#"><span>Section C1</span></a></li>
-                  <li class="section"><a href="#"><span>Section C2</span></a></li>
-                  
-                </ul>
+                <a href="#"><span>የሴቶ ጉዳይ ተጠሪ</span></a>
               </li>
               <li class="department dep-d">
-                <a href="#"><span>Department D</span></a>
-                <ul class="sections">
-                  <li class="section"><a href="#"><span>Section D1</span></a></li>
-                  <li class="section"><a href="#"><span>Section D2</span></a></li>
-                  <li class="section"><a href="#"><span>Section D3</span></a></li>
-                  
-                </ul>
+                <a href="#"><span>የመዝናኛ እና ስፖርት ኮሚቴ</span></a>
               </li>
               <li class="department dep-e">
-                <a href="#"><span>Department E</span></a>
-                <ul class="sections">
-                  <li class="section"><a href="#"><span>Section E1</span></a></li>
-                  <li class="section"><a href="#"><span>Section E2</span></a></li>
-                  <li class="section"><a href="#"><span>Section E3</span></a></li>
-                </ul>
+                <a href="#"><span>የመረዳጃና የህዝብግንኙነት ኮሚቴ</span></a>
               </li>
             </ul>
           </li>

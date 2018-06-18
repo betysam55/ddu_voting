@@ -3,10 +3,10 @@
 @section('content')
   <div class="card">
       <div class="card-header">
-      <h2>{{$post->title}}</h2>
+      <h2>{{$canpost->title}}</h2>
       </div>
       <div class="card-body">
-       <p>{{$post->body}} </p>   
+       <p>{!! $canpost->body !!} </p>   
       </div>
   </div>
 @endsection

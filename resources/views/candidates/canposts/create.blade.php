@@ -9,7 +9,7 @@
       @endforeach
 </div>
 @endif
-<form action="{{route('campaignposts.store')}}" method="post">
+<form action="{{route('canposts.store')}}" method="post">
     @csrf
     <div class="form-group">
         <label for="title">Title</label>

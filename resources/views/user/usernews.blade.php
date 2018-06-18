@@ -9,7 +9,7 @@
                 <div class="card-body">
                 	@foreach($posts as $news)
 <h3><b>{{$news->title}}</b></h3>
-      <p>{{$news->body}}</p>
+      <p>{!! $news->body !!}</p>
       <br><br>
 @endforeach
 

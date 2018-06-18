@@ -1,12 +1,10 @@
 @extends ('layouts.app1')
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Setup Vote') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -19,18 +17,13 @@
 							</button>
 						</div>
 						<div class="col-md-12 col-lg-4 ">
-							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">{{ __('Setup Student Candidate Vote') }}
+							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">{{ __('Setup Student President Vote') }}
 							</button>
 						</div>
 							<div class="col-md-12 col-lg-4"><a href="{{route('viewActiveVote')}}"><button type="button" class="btn btn-info pull-right">{{ __('Active vote') }}
 							</button></a>
 						</div>
-						
                     </div>
-                    
-				
-
-
             </div>
             <div class="card-footer"></div>
             </div>

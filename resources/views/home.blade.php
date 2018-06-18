@@ -13,24 +13,14 @@
 
 
          <h3><b>Vote News</b></h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <p>የድሬዳዋ ዩኒቨርሲቲ የተማሪዎች ህብረት በ2001 ዓ.ም ፓርላሚነተሬ  የአመራረጥ ስነ-ሥርአት የተቋቋመ ሲሆን እኛ የድሬዳዋ ዩኒቨርስቲ ተማሪዎች በሀገራችን እየተሰጠ ያለው ትምህርትና ስልጠና የሀገራችንን የተማረ የሰው ሃይል ችግር ያገናዘበና ዘላቂ መፍትሄ የሚያስገኝ እንዲሆን በተናጠል ሳይሆን ተደራጅተን ከምን ጊዜውም በላይ የበኩላችንን አስተዋጽኦ የምናበርክትና የዜግነት ድርሻችንን ምንወጣበት ጊዜ አሁን እንደሆነ ስለተገነዘብን፤ 
           <a class="btn btn-primary btn-sm" href="#" role="button">View Details >></a>
        </p>
       <br><br>
 
 
        <h3><b>Vote Details</b></h3>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+           <p>የመማር ማስተማር ሂደቱ ሆነ ሀገራችን በምትከተለው የትምህርት ፖሊሲና የት/ትጥራት ማረጋገጫ ነጥቦች ላይ በተማሪው የተወከለ አካል ቀጥተኛ ተሳታፊ ቢሆን ውጤታማነቱ የላቀ እንዲሆን ስለታመነ፤በኢትዮጵያ የዴሞክራሲ፤ የልማትና የሰላም ስትራተጂዎችና ፕሮግራሞች እንቅስቃሴ በመሳተፍ ለውጥ ለማምጣት፤ የአገር ተቆርቋሪነትና የአንድነት ስሜት ለማዳበር፤ የሀገራችን የረጅም ዘመን አብሮና ተቻችሎ የመኖር ባህል በበለጠ ለማጠናከር፤ለፈጣን ዕድገት አዎንታዊ ሁኔታዎችን በመፍጠር ረገድ እኛ የከፍተኛ ትምህርት ተቋማት ተማሪዎች ከፍተኛ ድርሻና የማይተካ ሚና እንዳለን ስለምናምን፤
              <a class="btn btn-primary btn-sm" href="/su_vote" role="button">View Details >></a>
            </p>
     </div>

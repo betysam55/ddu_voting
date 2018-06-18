@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <i class="fa d-inline fa-lg fa-cloud"></i>
+        <i class="image"><img src="{{asset('uploads/images/ddu_logo.png')}}"></i>
         <b>{{ config('app.name', 'Laravel') }}</b>
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,12 @@
             
             <a class="nav-link" href="#">
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Notification</a>
+            
+          </li>
+           <li class="nav-item">
+            
+            <a class="nav-link" href="/campaign/post">
+              <i class="fa d-inline fa-lg fa-envelope-o"></i> Campaign Post</a>
             
           </li>
           <li class="nav-item">

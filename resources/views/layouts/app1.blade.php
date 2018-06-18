@@ -50,12 +50,13 @@
                 </li>
                  <li class="nav-item">
                   <a href="/setup/vote" class="nav-link">Setup voting</a>
-                </li>
-                 <li class="nav-item">
-                  <a href="/report" class="nav-link">Generate Report</a>
-                </li>
+                
                  <li class="nav-item">
                   <a href="/user/privilage" class="nav-link">User Privilage</a>
+                </li>
+              </li>
+                 <li class="nav-item">
+                  <a href="/adm/result" class="nav-link">View Result</a>
                 </li>
               </ul>
             </div>
